@@ -1,0 +1,22 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+.img-fluid {
+  height: 20%;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footer {
+  background-color: transparent;
+  bottom: 0;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
