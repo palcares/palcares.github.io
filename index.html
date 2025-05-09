@@ -1,133 +1,390 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required Meta Tags -->
-    <meta
-      charset="utf-8">
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet">
-
-    <!-- MDB -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"
-      rel="stylesheet">
-
-    <!-- Raleway Font -->
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
-      rel="stylesheet">
-
-    <!-- Favicon -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-touch-icon.png">
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon-32x32.png">
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon-16x16.png">
-    <link
-      rel="manifest"
-      href="/site.webmanifest">
-    <link
-      rel="mask-icon"
-      href="/safari-pinned-tab.svg"
-      color="#fff480">
-    <meta
-      name="msapplication-TileColor"
-      content="#ffffff">
-    <meta
-      name="theme-color"
-      content="#ffffff">
-
-    <!-- Custom Styles -->
-    <link
-      href="custom.css"
-      rel="stylesheet">
-
-    <title>
-      PALcares
-    </title>
-  </head>
-  <body>
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"></script>
-
-    <main>
-      <div class="container cover text-center">
-        <img src="logo.svg" class="img-fluid pb-3" width=450>
-        <p class="lead pt-3">
-          We are a non-profit startup building tools to aid community members who struggle to obtain relevant and applicable support. Our tools provide valuable support for government and non-profit stakeholders who lack the infrastructure to address service gaps, service duplication, and sector inefficiencies.
-        </p>
-        <div class="pt-3" style="padding-bottom: 70pt;">
-          <p class="lead">
-            Stay in the loop and connect with us on social media
-          </p>
-          <div style="font-size: 30pt;">
-            <a href="https://www.facebook.com/PALcaresCA">
-            <i
-              class="fab fa-facebook-f"
-              style="color: #1877F2; padding-right: 10pt;"></i>
-            </a>
-            <a href="https://twitter.com/palcares_ca">
-              <i
-                class="fab fa-twitter"
-                style="color: #1D9BF0; padding-right: 10pt;"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/palcares">
-              <i
-                class="fab fa-linkedin-in"
-                style="color: #3368AE; padding-right: 10pt;"></i>
-            </a>
-            <a href="https://www.instagram.com/palcares_ca">
-              <img
-                src="Instagram_Glyph_Gradient_RGB.png"
-                style="padding-right: 10pt; height: 1em; position: relative; top: -3.25pt;">
-            </a>
-            <a href="mailto:info@palcares.ca">
-              <i
-                class="fa fa-envelope"
-                style="color: #7787D9;"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <footer class="footer fixed-bottom container-fluid">
-      <p class="text-center">
-        &#169; Copyright 2021&ndash;2022 Perseverance Analytics Ltd.
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PALcares</title>
+  
+  <!-- Raleway font as specified in client requirements -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  
+  <!-- Font Awesome for social icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+  
+  <style>
+    /* Brand colors from original design */
+    :root {
+      --primary: #3368AE;
+      --secondary: #7787D9;
+      --accent: rgba(51,104,174,0.2);
+      --background: #FAFCFF;
+      --text: #333336;
+      --ease: cubic-bezier(0.25,0.1,0.25,1);
+    }
+    
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      color: var(--text);
+      position: relative;
+      overflow: hidden;
+      background-color: var(--background);
+    }
+    
+    /* Geometric mountains background with slow movement */
+    .mountains-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+    
+    /* Multiple geometric mountains with different sizes and positions */
+    .mountain-range {
+      position: absolute;
+      bottom: -20%;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+    
+    .mountain-1 {
+      position: absolute;
+      bottom: 0;
+      left: -10%;
+      width: 70%;
+      height: 70%;
+      clip-path: polygon(30% 10%, 55% 30%, 70% 15%, 90% 40%, 50% 70%, 10% 40%);
+      background: linear-gradient(180deg, transparent, rgba(51,104,174,0.1));
+      animation: mountainShift1 90s infinite alternate ease-in-out;
+    }
+    
+    .mountain-2 {
+      position: absolute;
+      bottom: -10%;
+      right: -10%;
+      width: 80%;
+      height: 80%;
+      clip-path: polygon(20% 30%, 40% 10%, 60% 30%, 80% 15%, 95% 40%, 60% 70%, 30% 50%);
+      background: linear-gradient(180deg, transparent, rgba(119,135,217,0.08));
+      animation: mountainShift2 110s infinite alternate-reverse ease-in-out;
+    }
+    
+    .mountain-3 {
+      position: absolute;
+      bottom: -5%;
+      left: 20%;
+      width: 60%;
+      height: 60%;
+      clip-path: polygon(10% 40%, 30% 20%, 50% 40%, 70% 25%, 90% 50%, 50% 80%, 20% 50%);
+      background: linear-gradient(180deg, transparent, rgba(51,104,174,0.07));
+      animation: mountainShift3 100s infinite alternate ease-in-out;
+    }
+    
+    .mountain-4 {
+      position: absolute;
+      bottom: -15%;
+      right: 15%;
+      width: 50%;
+      height: 70%;
+      clip-path: polygon(15% 45%, 35% 20%, 55% 40%, 75% 25%, 90% 45%, 60% 70%, 30% 55%);
+      background: linear-gradient(180deg, transparent, rgba(119,135,217,0.06));
+      animation: mountainShift4 120s infinite alternate-reverse ease-in-out;
+    }
+    
+    @keyframes mountainShift1 {
+      0% { 
+        transform: translateY(0) translateX(0);
+        background: linear-gradient(180deg, transparent, rgba(51,104,174,0.08));
+      }
+      100% { 
+        transform: translateY(-3%) translateX(1%);
+        background: linear-gradient(180deg, transparent, rgba(51,104,174,0.12));
+      }
+    }
+    
+    @keyframes mountainShift2 {
+      0% { 
+        transform: translateY(0) translateX(0);
+        background: linear-gradient(180deg, transparent, rgba(119,135,217,0.06));
+      }
+      100% { 
+        transform: translateY(-2%) translateX(-2%);
+        background: linear-gradient(180deg, transparent, rgba(119,135,217,0.1));
+      }
+    }
+    
+    @keyframes mountainShift3 {
+      0% { 
+        transform: translateY(0) translateX(0); 
+        background: linear-gradient(180deg, transparent, rgba(51,104,174,0.05));
+      }
+      100% { 
+        transform: translateY(-4%) translateX(2%);
+        background: linear-gradient(180deg, transparent, rgba(51,104,174,0.09));
+      }
+    }
+    
+    @keyframes mountainShift4 {
+      0% { 
+        transform: translateY(0) translateX(0);
+        background: linear-gradient(180deg, transparent, rgba(119,135,217,0.04));
+      }
+      100% { 
+        transform: translateY(-3%) translateX(-1%);
+        background: linear-gradient(180deg, transparent, rgba(119,135,217,0.08));
+      }
+    }
+    
+    /* Enhanced ambient light effect with color shifts */
+    .light-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.5;
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(51,104,174,0.05) 0%, transparent 70%),
+        radial-gradient(circle at 70% 70%, rgba(119,135,217,0.05) 0%, transparent 70%);
+      animation: pulseLight 15s infinite alternate ease-in-out;
+    }
+    
+    @keyframes pulseLight {
+      0% { 
+        opacity: 0.4; 
+        background: 
+          radial-gradient(circle at 30% 30%, rgba(51,104,174,0.05) 0%, transparent 70%),
+          radial-gradient(circle at 70% 70%, rgba(119,135,217,0.05) 0%, transparent 70%);
+      }
+      50% {
+        opacity: 0.5;
+        background: 
+          radial-gradient(circle at 35% 35%, rgba(51,104,174,0.06) 0%, transparent 70%),
+          radial-gradient(circle at 65% 65%, rgba(119,135,217,0.07) 0%, transparent 70%);
+      }
+      100% { 
+        opacity: 0.6; 
+        background: 
+          radial-gradient(circle at 40% 40%, rgba(51,104,174,0.07) 0%, transparent 70%),
+          radial-gradient(circle at 60% 60%, rgba(119,135,217,0.08) 0%, transparent 70%);
+      }
+    }
+    
+    /* Content area */
+    .content {
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+      z-index: 1;
+      /* Ensure text readability with subtle shadow */
+      text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+    }
+    
+    .logo {
+      width: 260px;
+      max-width: 90%;
+      opacity: 0;
+      animation: fadeIn 1.2s forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .mission {
+      text-align: center;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 1.2s forwards 0.3s;
+      line-height: 1.8;
+      max-width: 90%;
+      /* Remove the box/background as requested */
+      padding: 1.5rem;
+    }
+    
+    .mission p {
+      font-size: 1.25rem;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .mission p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Modern underline that follows text naturally */
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, rgba(51,104,174,0.2), rgba(119,135,217,0.2));
+      border-radius: 3px;
+      z-index: -1;
+      transition: height 0.3s var(--ease);
+    }
+    
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 1.4rem;
+      opacity: 0;
+      animation: fadeIn 1.2s forwards 0.6s;
+    }
+    
+    .social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: var(--text);
+      position: relative;
+      transition: all 0.3s var(--ease);
+      /* Glass effect for modern look */
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    
+    .social a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s var(--ease);
+    }
+    
+    .social a:hover {
+      transform: translateY(-4px);
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .social a:hover::before {
+      opacity: 1;
+    }
+    
+    .social i {
+      z-index: 1;
+      font-size: 1.1rem;
+    }
+    
+    footer {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(51,51,54,0.6);
+      opacity: 0;
+      animation: fadeIn 1.2s forwards 0.9s;
+      padding: 0.5rem 1rem;
+      /* Remove background as requested */
+      border-radius: 20px;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .content {
+        gap: 3rem;
+      }
+      
+      .mission p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Geometric mountains background with subtle movement -->
+  <div class="mountains-bg">
+    <div class="mountain-range">
+      <div class="mountain-1"></div>
+      <div class="mountain-2"></div>
+      <div class="mountain-3"></div>
+      <div class="mountain-4"></div>
+    </div>
+  </div>
+  
+  <!-- Light effects for depth -->
+  <div class="light-effect"></div>
+  
+  <div class="content">
+    <!-- Logo -->
+    <img src="logo.svg" alt="PALcares logo" class="logo"/>
+    
+    <!-- Mission statement with no background -->
+    <div class="mission">
+      <p>
+        PalCares works alongside Alberta's social service organizations to create
+        <span class="highlight">sustainable, community-guided data systems</span>.
       </p>
-    </footer>
-  </body>
+      <p>
+        We believe technology must be rooted in trust, shaped by frontline expertise,
+        and designed to meet genuine community needs rather than commercial interests.
+      </p>
+    </div>
+    
+    <!-- Social media links with modern glass effect -->
+    <div class="social">
+      <a href="https://www.facebook.com/PALcaresCA" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/palcares_ca" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/company/palcares" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.instagram.com/palcares_ca" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:info@palcares.ca" aria-label="Email">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </div>
+    
+    <footer>© 2021–2025 Perseverance Analytics Ltd.</footer>
+  </div>
+</body>
 </html>
